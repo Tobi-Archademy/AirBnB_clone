@@ -31,17 +31,21 @@ By the end of the project, we get to know
 * [Environment](#environment)
 * [Installation](#installation)
 * [How To Use It](#how-to-use-it)
-* [Examples](#examples)
 * [Bugs](#bugs)
 * [Authors](#authors)
 * [License](#license)
 
 ## File Descriptions
-[console.py](console.py) - the console contains the entry point of the command interpreter.
-List of commands this console current supports:
+[console.py](console.py) - This is the entry point of the command interpreter.
+The [console.py](console.py) currently supports:
 * `EOF` - exits console
 * `quit` - exits console
 * `<emptyline>` - overwrites default emptyline method and does nothing
+* `create` - Creates a new instance of`BaseModel`, saves it (to the JSON file) and prints the id
+* `destroy` - Deletes an instance based on the class name and id (save the change into the JSON file).
+* `show` - Prints the string representation of an instance based on the class name and id.
+* `all` - Prints all string representation of all instances based or not on the class name.
+* `update` - Updates an instance based on the class name and id by adding or updating attribute (save the change into the JSON file).
 
 ## Environment
 This project was interpreted/compiled on Ubuntu 20.04 LTS using python3 (version 3.8.5)
@@ -54,17 +58,36 @@ This project was interpreted/compiled on Ubuntu 20.04 LTS using python3 (version
 * * Non-interactively: `echo "<command>" | ./console.py`
 
 ## How To Use It
+```
+vagrantAirBnB_clone$./console.py
+(hbnb) help
 
+Documented commands (type help <topic>):
+========================================
+EOF  all  create  destroy  help  quit  show  update
 
-## Examples
-
+(hbnb) all MyModel
+** class doesn't exist **
+(hbnb) create BaseModel
+7da56403-cc45-4f1c-ad32-bfafeb2bb050
+(hbnb) all BaseModel
+[[BaseModel] (7da56403-cc45-4f1c-ad32-bfafeb2bb050) {'updated_at': datetime.datetime(2017, 9, 28, 9, 50, 46, 772167), 'id': '7da56403-cc45-4f1c-ad32-bfafeb2bb050', 'created_at': datetime.datetime(2017, 9, 28, 9, 50, 46, 772123)}]
+(hbnb) show BaseModel 7da56403-cc45-4f1c-ad32-bfafeb2bb050
+[BaseModel] (7da56403-cc45-4f1c-ad32-bfafeb2bb050) {'updated_at': datetime.datetime(2017, 9, 28, 9, 50, 46, 772167), 'id': '7da56403-cc45-4f1c-ad32-bfafeb2bb050', 'created_at': datetime.datetime(2017, 9, 28, 9, 50, 46, 772123)}
+(hbnb) destroy BaseModel 7da56403-cc45-4f1c-ad32-bfafeb2bb050
+(hbnb) show BaseModel 7da56403-cc45-4f1c-ad32-bfafeb2bb050
+** no instance found **
+(hbnb) quit
+```
 
 ## Bugs
-
+No knowned bugs at this time.
 
 ## Authors
+OAfonne-CID Paul Onyedikachi - [Github](https://github.com/Afonne-CID)
+luwatobi Abass - [Github](https://github.com/Tobi-Archademy)
 
 
 ## License
-
+Public Domain. No copy write protection. # AirBnB_clone
 
