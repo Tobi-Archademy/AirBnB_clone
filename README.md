@@ -84,10 +84,9 @@ EOF  all  create  destroy  help  quit  show  update
 No knowned bugs at this time.
 
 ## Authors
-OAfonne-CID Paul Onyedikachi - [Github](https://github.com/Afonne-CID)
+Afonne-CID Paul Onyedikachi - [Github](https://github.com/Afonne-CID)
 luwatobi Abass - [Github](https://github.com/Tobi-Archademy)
 
 
 ## License
 Public Domain. No copy write protection. # AirBnB_clone
-
