@@ -85,7 +85,7 @@ No knowned bugs at this time.
 
 ## Authors
 Afonne-CID Paul Onyedikachi - [Github](https://github.com/Afonne-CID)
-luwatobi Abass - [Github](https://github.com/Tobi-Archademy)
+Oluwatobi Abass - [Github](https://github.com/Tobi-Archademy)
 
 
 ## License
