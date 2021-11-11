@@ -81,7 +81,7 @@ EOF  all  create  destroy  help  quit  show  update
 ```
 
 ## Bugs
-No knowned bugs at this time.
+No known bugs at this time.
 
 ## Authors
 Afonne-CID Paul Onyedikachi - [Github](https://github.com/Afonne-CID)
