@@ -53,12 +53,10 @@ class TestBaseModel_instantiation(unittest.TestCase):
         inst = BaseModel(None)
         self.assertNotIn(None, inst.__dict__.values())
 
-"""
     def test_instantiation_with_kwargs(self):
         dt = datetime.today()
         dt_iso = dt.isoformat()
-        inst = BaseModel(created_at=dt_iso, updated_at=dt_iso)
-        inst.id = "091"
+        inst = BaseModel(id="091", created_at=dt_iso, updated_at=dt_iso)
         self.assertEqual(inst.id, "091")
         self.assertEqual(inst.created_at, dt)
         self.assertEqual(inst.updated_at, dt)
@@ -71,12 +69,13 @@ class TestBaseModel_instantiation(unittest.TestCase):
         dt = datetime.today()
         dt_iso = dt.isoformat()
         inst = BaseModel(
-                "12", created_at=dt_iso, updated_at=dt_iso)
-        inst.id = "71425908"
+                "12", id="71425908", created_at=dt_iso,
+                updated_at=dt_iso
+        )
         self.assertEqual(inst.id, "71425908")
         self.assertEqual(inst.created_at, dt)
         self.assertEqual(inst.updated_at, dt)
-"""
+
 
 class TestBaseModel_save(unittest.TestCase):
     """Unittests `save()` method of BaseModel
@@ -128,6 +127,7 @@ class TestBaseModel_save(unittest.TestCase):
         with open("file.json", "r") as f:
             self.assertIn(inst_id, f.read())
 """
+
 
 class TestBaseModel_to_dict(unittest.TestCase):
     """Unittests `to_dict()` method of a BaseModel Instance."""
