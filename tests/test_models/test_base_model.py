@@ -119,14 +119,12 @@ class TestBaseModel_save(unittest.TestCase):
         with self.assertRaises(TypeError):
             inst.save(None)
 
-"""
     def test_save_updates_file(self):
         inst = BaseModel()
         inst.save()
         inst_id = "BaseModel." + inst.id
         with open("file.json", "r") as f:
             self.assertIn(inst_id, f.read())
-"""
 
 
 class TestBaseModel_to_dict(unittest.TestCase):
