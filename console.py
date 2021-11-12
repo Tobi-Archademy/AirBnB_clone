@@ -4,6 +4,7 @@
 import cmd
 import models
 from models.base_model import BaseModel
+from models.user import User
 
 
 class HBNBCommand(cmd.Cmd):
@@ -15,7 +16,8 @@ class HBNBCommand(cmd.Cmd):
 
     prompt = "(hbnb) "
     __my_classes = {
-            "BaseModel"
+            "BaseModel",
+            "User"
     }
 
     def emptyline(self):
@@ -53,7 +55,7 @@ class HBNBCommand(cmd.Cmd):
         Usage: `$ show <class name> <id>
         """
         obj_dict = models.storage.all()
-        
+
         if len(arg) == 0:
             print("** class name missing **")
         else:
@@ -67,7 +69,7 @@ class HBNBCommand(cmd.Cmd):
                 print("** no instance found **")
             else:
                 print(obj_dict[tokens[0] + '.' + tokens[1]])
-        
+
     def do_destroy(self, arg):
         """Deletes an instance based on the class name and id,
         and saves the changes into (the) JSON file
@@ -75,7 +77,7 @@ class HBNBCommand(cmd.Cmd):
         Usage: `$ destroy <class name> <instance id>
         """
         obj_dict = models.storage.all()
-        
+
         if len(arg) == 0:
             print("** class name missing **")
         else:
@@ -115,12 +117,12 @@ class HBNBCommand(cmd.Cmd):
     def do_update(self, arg):
         """Updates an instance based on the class name and id
         by adding or updating attribute (save the change to the JSON file
-        
+
         Usage: update <class name> <id> <attribute name> "<attribute value>"
         Ex: update BaseModel 1234-1234-1234 email "aibnb@mail.com"
         """
         obj_dict = models.storage.all()
-        
+
         if len(arg) == 0:
             print("** class name missing **")
         else:
