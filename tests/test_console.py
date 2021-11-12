@@ -2,49 +2,49 @@
 """Unittest module to test `console.py`
 
 Classes:
-    TestConsole_prompt
-    TestConsole_help
-    TestConsole_exit
-    TestConsole_quit
+    TestHBNBCommand_prompt
+    TestHBNBCommand_help
+    TestHBNBCommand_exit
+    TestHBNBCommand_quit
 """
 import io
 import sys
 import unittest
 from contextlib import redirect_stdout
-from console import Console
+from console import HBNBCommand
 
 
-class TestConsole_prompt(unittest.TestCase):
-    """Unittests for testing Console prompting
+class TestHBNBCommand_prompt(unittest.TestCase):
+    """Unittests for testing HBNBCommand prompting
     """
 
     def test_prompt_output(self):
-        self.assertEqual("(hbnb) ", Console.prompt)
+        self.assertEqual("(hbnb) ", HBNBCommand.prompt)
 
     def test_prompt_with_emptyline(self):
         s = io.StringIO()
         with redirect_stdout(s):
-            Console().onecmd("")
+            HBNBCommand().onecmd("")
         output = s.getvalue()
         self.assertEqual("", output.strip())
 
 
-class TestConsole_help(unittest.TestCase):
-    """Unittests for testing Console `help`
+class TestHBNBCommand_help(unittest.TestCase):
+    """Unittests for testing HBNBCommand `help`
     """
 
     def test_help_quit(self):
-        msg = "Quits the program"
+        msg = "Quit command to exit the program"
         s = io.StringIO()
         with redirect_stdout(s):
-            Console().onecmd("help quit")
+            HBNBCommand().onecmd("help quit")
         output = s.getvalue()
         self.assertEqual(msg, output.strip())
 
     def test_help_EOF(self):
-        msg = "Cleanly exits the program by the `EOF` signal"
+        msg = "`EOF` signal to exit the program"
         s = io.StringIO()
         with redirect_stdout(s):
-            Console().onecmd("help EOF")
+            HBNBCommand().onecmd("help EOF")
         output = s.getvalue()
         self.assertEqual(msg, output.strip())

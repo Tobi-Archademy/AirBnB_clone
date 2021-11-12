@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-""" Command interpreter (the `Console`) to manager the AirBnB objects
+""" Command interpreter (the `HBNBCommand`) to manager the AirBnB objects
 """
 import cmd
 
 
-class Console(cmd.Cmd):
+class HBNBCommand(cmd.Cmd):
     """Represents the Base model for all other classes in the project
 
     Attributes:
@@ -19,16 +19,16 @@ class Console(cmd.Cmd):
         pass
 
     def do_EOF(self, arg):
-        """Cleanly exits the program by the `EOF` signal
+        """`EOF` signal to exit the program
         """
         print("")
         return True
 
     def do_quit(self, arg):
-        """Quits the program
+        """Quit command to exit the program
         """
         return True
 
 
 if __name__ == "__main__":
-    Console().cmdloop()
+    HBNBCommand().cmdloop()
