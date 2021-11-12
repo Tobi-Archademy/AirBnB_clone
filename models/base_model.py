@@ -2,8 +2,8 @@
 """The `BaseModel class` that defines all common attributes/methods
 for other classes
 """
-import uuid
 import models
+import uuid
 from datetime import datetime
 
 
@@ -22,7 +22,7 @@ class BaseModel:
         self.created_at = datetime.today()
         self.updated_at = datetime.today()
 
-        if (kwargs != '{}'):
+        if len(kwargs) != 0:
             for key, value in kwargs.items():
                 if key == 'created_at' or key == 'updated_at':
                     t_format = "%Y-%m-%dT%H:%M:%S.%f"
