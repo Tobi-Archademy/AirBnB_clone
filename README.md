@@ -73,7 +73,7 @@ $
 
 ## Testing :straight_ruler:
 
-Unittests for the AirBnB project are defines in the [tests](./tests) directory. To run the entire test suits simultaneously, execute the following commands:
+Unittests for the AirBnB project are defined in the [tests](./tests) directory. To run the entire test suit simultaneously, execute the following commands:
 
 ```
 $ python3 -m unittest discover tests
