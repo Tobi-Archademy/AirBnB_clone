@@ -71,13 +71,30 @@ $
 
 ```
 
+## Testing :straight_ruler:
+
+Unittests for the AirBnB project are defines in the [tests](./tests) directory. To run the entire test suits simultaneously, execute the following commands:
+
+```
+$ python3 -m unittest discover tests
+```
+```
+$ python3 -m unittest discover tests/test_models
+```
+
+Alternatively, you can specify a single test file to run at a time:
+
+```
+$ python3 -m unittest tests/test_console.py
+```
+
 ## Bugs
 No known bugs at this time.
 
-## Authors
+## Authors :black_nib:
 Afonne-CID Paul Onyedikachi - [Github](https://github.com/Afonne-CID)
 Oluwatobi Abass - [Github](https://github.com/Tobi-Archademy)
 
 
 ## License
-Public Domain. No copy write protection. # AirBnB_clone
+Public Domain. No Copyright protection. # AirBnB_clone
