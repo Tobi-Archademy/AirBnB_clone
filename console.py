@@ -2,6 +2,7 @@
 """ Command interpreter (the `HBNBCommand`) to manager the AirBnB objects
 """
 import cmd
+import re
 import models
 from models.base_model import BaseModel
 from models.user import User
@@ -34,6 +35,25 @@ class HBNBCommand(cmd.Cmd):
         """Called when nothing is typed before hitting enter
         """
         pass
+
+    def default(self, arg):
+        """Method called on an input line when the command prefix
+        is not recognied
+        """
+        commands = {
+                "all": self.do_all,
+                "show": self.do_destroy,
+                "count": self.do_count,
+                "update": self.do_update
+        }
+        try:
+            values = arg.split('.')
+            command = values[1][:-2]
+            if (command in commands.keys()
+                    and (values[0] in HBNBCommand.__my_classes)):
+                commands[command](values[0])
+        except Exception as e:
+            print(e)
 
     def do_EOF(self, arg):
         """`EOF` signal to exit the program
@@ -119,10 +139,27 @@ class HBNBCommand(cmd.Cmd):
                     if arg == each.__class__.__name__:
                         selected.append(each.__str__())
                 print(selected)
+
         else:
             for each in obj_dict.values():
                 selected.append(each.__str__())
             print(selected.__str__())
+
+    def do_count(self, arg):
+        """Retrives the number of instances of a classe
+        """
+        obj_dict = models.storage.all()
+        cnt = 0
+        if len(arg) == 0:
+            print("** class name missing **")
+        else:
+            if arg not in HBNBCommand.__my_classes:
+                print("** class doesn't exist **")
+            else:
+                for each in obj_dict.keys():
+                    if arg in each:
+                        cnt += 1
+                print(cnt)
 
     def do_update(self, arg):
         """Updates an instance based on the class name and id
