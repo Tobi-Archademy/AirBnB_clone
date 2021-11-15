@@ -42,16 +42,27 @@ class HBNBCommand(cmd.Cmd):
         """
         commands = {
                 "all": self.do_all,
-                "show": self.do_destroy,
+                "show": self.do_show,
                 "count": self.do_count,
-                "update": self.do_update
+                "update": self.do_update,
+                "destroy": self.do_destroy
         }
         try:
             values = arg.split('.')
-            command = values[1][:-2]
-            if (command in commands.keys()
-                    and (values[0] in HBNBCommand.__my_classes)):
-                commands[command](values[0])
+            puncts = re.search(r"\((.*?)\)", arg)
+            if puncts is not None:
+                raw_re = re.search(r"\((.*?)\)", arg)
+                clean = ([arg[:raw_re.span()[0]],
+                         raw_re.group()[1:-1]])
+                if len(clean) == 2:
+                    value = str(clean[0]).split('.')
+                    execute = "{} {}".format(value[0], clean[1].strip('"'))
+                    return commands[value[1]](execute)
+            else:
+                command = values[1][:-2]
+                if (command in commands.keys()
+                        and (values[0] in HBNBCommand.__my_classes)):
+                    commands[command](values[0])
         except Exception as e:
             print(e)
 
